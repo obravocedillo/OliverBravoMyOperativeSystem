@@ -132,7 +132,7 @@ static int (*syscalls[])(void) = {
 [SYS_reboot]  sys_reboot,
 };
 
-const char *Syscalls[23] = {"fork", "exit", "wait", "pipe", "read", "kill", "exec", "fstat", "chdir", "dup", "getpid", "sbrk", "sleep", "uptime", "open", "write", "mknod", "unlink", "link", "mkdir", "close", "shutdown", "reboot"};
+/*const char *Syscalls[23] = {"fork", "exit", "wait", "pipe", "read", "kill", "exec", "fstat", "chdir", "dup", "getpid", "sbrk", "sleep", "uptime", "open", "write", "mknod", "unlink", "link", "mkdir", "close", "shutdown", "reboot"};*/
 
 void
 syscall(void)
@@ -141,7 +141,7 @@ syscall(void)
   struct proc *curproc = myproc();
   num = curproc->tf->eax;
   curproc->tf->eax = -1;
-  cprintf("%s -> %d\n", Syscalls[num], num + 1);
+  //cprintf("%s -> %d\n", Syscalls[num],num);
   if(num > 0 && num < NELEM(syscalls) && syscalls[num]) {
     curproc->tf->eax = syscalls[num]();
   } else {

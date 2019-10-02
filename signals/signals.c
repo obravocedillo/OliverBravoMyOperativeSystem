@@ -16,7 +16,6 @@ int main (){
         printf("Soy el hijo\n");
         while(infinito){
             printf("No he salido\n");
-            infinito = 2;
             sleep(2);
         }
         printf("Ya sali\n");
